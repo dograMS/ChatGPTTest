@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLLMSettings));
             this.groupBoxLLM = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxLLMName = new System.Windows.Forms.TextBox();
-            this.textBoxApiUrl = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxApiKey = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
             this.textBoxAIModel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBoxApiKey = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxApiUrl = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxLLMName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.groupBoxLLM.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,44 +61,24 @@
             this.groupBoxLLM.TabStop = false;
             this.groupBoxLLM.Text = "API Settings";
             // 
-            // label1
+            // textBoxAIModel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "LLM Name";
+            this.textBoxAIModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAIModel.Location = new System.Drawing.Point(136, 131);
+            this.textBoxAIModel.Multiline = true;
+            this.textBoxAIModel.Name = "textBoxAIModel";
+            this.textBoxAIModel.Size = new System.Drawing.Size(592, 30);
+            this.textBoxAIModel.TabIndex = 7;
             // 
-            // textBoxLLMName
+            // label4
             // 
-            this.textBoxLLMName.Enabled = false;
-            this.textBoxLLMName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLLMName.Location = new System.Drawing.Point(135, 38);
-            this.textBoxLLMName.Multiline = true;
-            this.textBoxLLMName.Name = "textBoxLLMName";
-            this.textBoxLLMName.Size = new System.Drawing.Size(592, 30);
-            this.textBoxLLMName.TabIndex = 1;
-            // 
-            // textBoxApiUrl
-            // 
-            this.textBoxApiUrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxApiUrl.Location = new System.Drawing.Point(135, 83);
-            this.textBoxApiUrl.Multiline = true;
-            this.textBoxApiUrl.Name = "textBoxApiUrl";
-            this.textBoxApiUrl.Size = new System.Drawing.Size(592, 30);
-            this.textBoxApiUrl.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "API URL";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(22, 136);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "AI Model";
             // 
             // textBoxApiKey
             // 
@@ -118,6 +98,45 @@
             this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "API Key";
+            // 
+            // textBoxApiUrl
+            // 
+            this.textBoxApiUrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxApiUrl.Location = new System.Drawing.Point(135, 83);
+            this.textBoxApiUrl.Multiline = true;
+            this.textBoxApiUrl.Name = "textBoxApiUrl";
+            this.textBoxApiUrl.Size = new System.Drawing.Size(592, 30);
+            this.textBoxApiUrl.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(21, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "API URL";
+            // 
+            // textBoxLLMName
+            // 
+            this.textBoxLLMName.Enabled = false;
+            this.textBoxLLMName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLLMName.Location = new System.Drawing.Point(135, 38);
+            this.textBoxLLMName.Multiline = true;
+            this.textBoxLLMName.Name = "textBoxLLMName";
+            this.textBoxLLMName.Size = new System.Drawing.Size(592, 30);
+            this.textBoxLLMName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "LLM Name";
             // 
             // buttonSave
             // 
@@ -141,25 +160,6 @@
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // textBoxAIModel
-            // 
-            this.textBoxAIModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAIModel.Location = new System.Drawing.Point(136, 131);
-            this.textBoxAIModel.Multiline = true;
-            this.textBoxAIModel.Name = "textBoxAIModel";
-            this.textBoxAIModel.Size = new System.Drawing.Size(592, 30);
-            this.textBoxAIModel.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 139);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "AI Model";
             // 
             // FormLLMSettings
             // 

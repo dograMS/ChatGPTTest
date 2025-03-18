@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,6 +20,7 @@ namespace ChatGPTTest
         private const string OpenAI_ApiUrl = "https://api.openai.com/v1/chat/completions";
         private const string OpenAI_ApiModel = "gpt-4o-mini";
         public ApiSettings m_OpenApiSettings ;
+        private List<object> conversationHistory = new List<object>();
 
         public FormChatGPT()
         {
@@ -87,10 +89,13 @@ namespace ChatGPTTest
             {
                 client.DefaultRequestHeaders.Add("Authorization", $"Bearer {m_OpenApiSettings.ApiKey}");
 
+                // Append the new message to history
+                conversationHistory.Add(new { role = "user", content = message });
+
                 var request = new
                 {
                     model = m_OpenApiSettings.AiModel,
-                    messages = new[] { new { role = "user", content = message } }
+                    messages = conversationHistory
                 };
 
                 var response = await client.PostAsJsonAsync(m_OpenApiSettings.ApiUrl, request);
@@ -102,6 +107,12 @@ namespace ChatGPTTest
                     .GetProperty("message")
                     .GetProperty("content")
                     .GetString();
+
+                if (!string.IsNullOrEmpty(content))
+                {
+                    // Append the AI response to history
+                    conversationHistory.Add(new { role = "assistant", content = content });
+                }
 
                 return content ?? "Error: No response";
             }
@@ -120,6 +131,7 @@ namespace ChatGPTTest
         private void newChatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             webViewGPT.ExecuteScriptAsync("document.body.innerHTML = '';");
+            conversationHistory.Clear();
         }
 
         private async void buttonAsk_Click_1(object sender, EventArgs e)
@@ -136,6 +148,9 @@ namespace ChatGPTTest
                 if (string.IsNullOrEmpty(userMessage)) return;
 
                 string chatResponse = await GetChatGPTResponse(userMessage);
+                chatResponse = Regex.Replace(chatResponse, @"\*\*(.*?)\*\*", "<b>$1</b>");
+                chatResponse = Regex.Replace(chatResponse, @"### (.*)", "<h4>$1</h4>");
+
                 string htmlResponse = $"<h3>User:</h3><p>{userMessage}</p><h3>ChatGPT:</h3><p>{chatResponse.Replace("\n", "<br>")}</p>";
 
                 await webViewGPT.ExecuteScriptAsync($@"document.body.innerHTML += `{htmlResponse}`");
