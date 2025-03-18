@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,57 +15,85 @@ namespace ChatGPTTest
 {
     public partial class FormChatGPT : Form
     {
+        private const string RegistryPath = "Software\\KTS InfoTech\\ChatGptTest";
         private const string OpenAI_ApiUrl = "https://api.openai.com/v1/chat/completions";
-        private const string OpenAI_ApiKey = "Your-API-Key"; // Replace with your OpenAI API Key
+        private const string OpenAI_ApiModel = "gpt-4o-mini";
+        public ApiSettings m_OpenApiSettings ;
 
         public FormChatGPT()
         {
             InitializeComponent();
             InitializeWebView();
+            m_OpenApiSettings = LoadApiSettingsFromRegistry();  
+
         }
+        
         private async void InitializeWebView()
         {
             await webViewGPT.EnsureCoreWebView2Async();
-            webViewGPT.CoreWebView2.NavigateToString("<h2>ChatGPT Response Will Appear Here...</h2>");
+            
         }
         private void SetStatusMessage(string message)
         {
             toolStripStatusLabel1.Text = message;
         }
 
-        private async void buttonAsk_Click(object sender, EventArgs e)
+        public ApiSettings LoadApiSettingsFromRegistry()
         {
+            ApiSettings settings = new ApiSettings("ChatGPT | OpenAPI", OpenAI_ApiUrl, OpenAI_ApiModel, "");
             try
             {
-                SetStatusMessage("Please Wait..");
-                string userMessage = textBoxQuery.Text.Trim();
-                if (string.IsNullOrEmpty(userMessage)) return;
-
-                string chatResponse = await GetChatGPTResponse(userMessage);
-                string htmlResponse = $"<h2>User:</h2><p>{userMessage}</p><h2>ChatGPT:</h2><p>{chatResponse}</p>";
-
-                webViewGPT.CoreWebView2.NavigateToString(htmlResponse);
-                SetStatusMessage("Done..");
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(RegistryPath))
+                {
+                    if (key != null)
+                    {
+                        settings.ApiLLMName = key.GetValue("ApiLLMName") as string;
+                        settings.ApiKey = key.GetValue("ApiKey") as string;
+                        settings.ApiUrl = key.GetValue("ApiUrl") as string;
+                        settings.AiModel = key.GetValue("AiModel") as string;
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error loading API settings: {ex.Message}");
             }
-            
+            return settings;
         }
+        public void SaveApiSettingsToRegistry(ApiSettings settings)
+        {
+            try
+            {
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(RegistryPath))
+                {
+                    if (key != null)
+                    {
+                        key.SetValue("ApiLLMName", settings.ApiLLMName ?? "");
+                        key.SetValue("ApiKey", settings.ApiKey ?? "");
+                        key.SetValue("ApiUrl", settings.ApiUrl ?? "");
+                        key.SetValue("AiModel", settings.AiModel ?? "");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving API settings: {ex.Message}");
+            }
+        }
+
         private async Task<string> GetChatGPTResponse(string message)
         {
             using (HttpClient client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {OpenAI_ApiKey}");
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {m_OpenApiSettings.ApiKey}");
 
                 var request = new
                 {
-                    model = "gpt-4o-mini",
+                    model = m_OpenApiSettings.AiModel,
                     messages = new[] { new { role = "user", content = message } }
                 };
 
-                var response = await client.PostAsJsonAsync(OpenAI_ApiUrl, request);
+                var response = await client.PostAsJsonAsync(m_OpenApiSettings.ApiUrl, request);
                 var result = await response.Content.ReadAsStringAsync();
 
                 var jsonDoc = JsonDocument.Parse(result);
@@ -77,6 +106,47 @@ namespace ChatGPTTest
                 return content ?? "Error: No response";
             }
         }
+
+        private void buttonProperties_Click(object sender, EventArgs e)
+        {
+            FormLLMSettings Settings = new FormLLMSettings(m_OpenApiSettings);
+            if (Settings.ShowDialog() == DialogResult.OK)
+            {
+                m_OpenApiSettings = Settings.GetApiSettings();
+                SaveApiSettingsToRegistry(m_OpenApiSettings);
+            }
+        }
+
+        private void newChatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            webViewGPT.ExecuteScriptAsync("document.body.innerHTML = '';");
+        }
+
+        private async void buttonAsk_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if(string.IsNullOrEmpty(m_OpenApiSettings.ApiKey))
+                {
+                    MessageBox.Show("Please set the API Key", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                SetStatusMessage("Please Wait..");
+                string userMessage = textBoxQuery.Text.Trim();
+                if (string.IsNullOrEmpty(userMessage)) return;
+
+                string chatResponse = await GetChatGPTResponse(userMessage);
+                string htmlResponse = $"<h3>User:</h3><p>{userMessage}</p><h3>ChatGPT:</h3><p>{chatResponse.Replace("\n", "<br>")}</p>";
+
+                await webViewGPT.ExecuteScriptAsync($@"document.body.innerHTML += `{htmlResponse}`");
+
+                SetStatusMessage("Done..");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
-   
+       
 }
