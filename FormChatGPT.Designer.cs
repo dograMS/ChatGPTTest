@@ -241,7 +241,7 @@
             this.IsMdiContainer = true;
             this.Name = "FormChatGPT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChatGPT | OpenAI API Test | Chat Browser";
+            this.Text = "ChatGPT | OpenAI API | Chat Browser";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

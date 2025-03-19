@@ -146,17 +146,18 @@ namespace ChatGPTTest
         {
             try
             {
-                if(string.IsNullOrEmpty(m_OpenApiSettings.ApiKey))
+                if (string.IsNullOrEmpty(m_OpenApiSettings.ApiKey))
                 {
                     MessageBox.Show("Please set the API Key", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if(m_bFirstTime)
+                if (m_bFirstTime)
                 {
                     NewChat();
                     m_bFirstTime = false;
                 }
                 SetStatusMessage("Please Wait..");
+
                 string userMessage = textBoxQuery.Text.Trim();
                 if (string.IsNullOrEmpty(userMessage)) return;
 
@@ -164,9 +165,26 @@ namespace ChatGPTTest
                 chatResponse = Regex.Replace(chatResponse, @"\*\*(.*?)\*\*", "<b>$1</b>");
                 chatResponse = Regex.Replace(chatResponse, @"### (.*)", "<h4>$1</h4>");
 
-                string htmlResponse = $"<h3>User:</h3><p>{userMessage}</p><h3>ChatGPT:</h3><p>{chatResponse.Replace("\n", "<br>")}</p>";
+                // Wrap message in a div with a unique class
+                string htmlResponse = $@"
+            <div class='chat-message'>
+                <h3>User:</h3>
+                <p>{userMessage}</p>
+                <h3>ChatGPT:</h3>
+                <p>{chatResponse.Replace("\n", "<br>")}</p>
+            </div>";
 
+                // Append the new content
                 await webViewGPT.ExecuteScriptAsync($@"document.body.innerHTML += `{htmlResponse}`");
+
+                // Scroll to the last chat message
+                await webViewGPT.ExecuteScriptAsync(@"
+            setTimeout(() => {
+                let messages = document.getElementsByClassName('chat-message');
+                if (messages.length > 0) {
+                    messages[messages.length - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);"); // Delay added to ensure DOM updates
 
                 SetStatusMessage("Done..");
             }
@@ -175,6 +193,8 @@ namespace ChatGPTTest
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
