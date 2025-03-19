@@ -79,7 +79,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.webViewGPT);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
+            this.splitContainer1.Size = new System.Drawing.Size(972, 450);
             this.splitContainer1.SplitterDistance = 39;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -96,8 +96,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.buttonProperties);
-            this.splitContainer2.Size = new System.Drawing.Size(800, 39);
-            this.splitContainer2.SplitterDistance = 758;
+            this.splitContainer2.Size = new System.Drawing.Size(972, 39);
+            this.splitContainer2.SplitterDistance = 920;
             this.splitContainer2.TabIndex = 0;
             // 
             // splitContainer3
@@ -113,8 +113,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.buttonAsk);
-            this.splitContainer3.Size = new System.Drawing.Size(758, 39);
-            this.splitContainer3.SplitterDistance = 687;
+            this.splitContainer3.Size = new System.Drawing.Size(920, 39);
+            this.splitContainer3.SplitterDistance = 833;
             this.splitContainer3.TabIndex = 0;
             // 
             // buttonAsk
@@ -125,7 +125,7 @@
             this.buttonAsk.ForeColor = System.Drawing.Color.Blue;
             this.buttonAsk.Location = new System.Drawing.Point(0, 0);
             this.buttonAsk.Name = "buttonAsk";
-            this.buttonAsk.Size = new System.Drawing.Size(67, 39);
+            this.buttonAsk.Size = new System.Drawing.Size(83, 39);
             this.buttonAsk.TabIndex = 1;
             this.buttonAsk.Text = "Ask";
             this.buttonAsk.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             this.buttonProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonProperties.Location = new System.Drawing.Point(0, 0);
             this.buttonProperties.Name = "buttonProperties";
-            this.buttonProperties.Size = new System.Drawing.Size(38, 39);
+            this.buttonProperties.Size = new System.Drawing.Size(48, 39);
             this.buttonProperties.TabIndex = 2;
             this.buttonProperties.Text = "...";
             this.buttonProperties.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 381);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(972, 26);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "Status Message..";
             // 
@@ -184,7 +184,7 @@
             this.webViewGPT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webViewGPT.Location = new System.Drawing.Point(0, 0);
             this.webViewGPT.Name = "webViewGPT";
-            this.webViewGPT.Size = new System.Drawing.Size(800, 407);
+            this.webViewGPT.Size = new System.Drawing.Size(972, 407);
             this.webViewGPT.TabIndex = 1;
             this.webViewGPT.ZoomFactor = 1D;
             // 
@@ -201,8 +201,8 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.textBoxQuery);
-            this.splitContainer4.Size = new System.Drawing.Size(687, 39);
-            this.splitContainer4.SplitterDistance = 32;
+            this.splitContainer4.Size = new System.Drawing.Size(833, 39);
+            this.splitContainer4.SplitterDistance = 38;
             this.splitContainer4.TabIndex = 0;
             // 
             // textBoxQuery
@@ -214,7 +214,7 @@
             this.textBoxQuery.Multiline = true;
             this.textBoxQuery.Name = "textBoxQuery";
             this.textBoxQuery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxQuery.Size = new System.Drawing.Size(651, 39);
+            this.textBoxQuery.Size = new System.Drawing.Size(791, 39);
             this.textBoxQuery.TabIndex = 2;
             // 
             // buttonNew
@@ -225,7 +225,7 @@
             this.buttonNew.ForeColor = System.Drawing.Color.Red;
             this.buttonNew.Location = new System.Drawing.Point(0, 0);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(32, 39);
+            this.buttonNew.Size = new System.Drawing.Size(38, 39);
             this.buttonNew.TabIndex = 2;
             this.buttonNew.Text = "New";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -235,7 +235,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(972, 450);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;

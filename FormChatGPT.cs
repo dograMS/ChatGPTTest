@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -16,6 +17,7 @@ namespace ChatGPTTest
 {
     public partial class FormChatGPT : Form
     {
+        private bool m_bFirstTime = true;
         private const string RegistryPath = "Software\\KTS InfoTech\\ChatGptTest";
         private const string OpenAI_ApiUrl = "https://api.openai.com/v1/chat/completions";
         private const string OpenAI_ApiModel = "gpt-4o-mini";
@@ -33,7 +35,8 @@ namespace ChatGPTTest
         private async void InitializeWebView()
         {
             await webViewGPT.EnsureCoreWebView2Async();
-            
+            LoadOpeningImage();
+
         }
         private void SetStatusMessage(string message)
         {
@@ -135,7 +138,9 @@ namespace ChatGPTTest
         private void NewChat()
         {
             webViewGPT.ExecuteScriptAsync("document.body.innerHTML = '';");
+            webViewGPT.NavigateToString("<html><body></body></html>");
             conversationHistory.Clear();
+            
         }
         private async void buttonAsk_Click_1(object sender, EventArgs e)
         {
@@ -145,6 +150,11 @@ namespace ChatGPTTest
                 {
                     MessageBox.Show("Please set the API Key", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
+                }
+                if(m_bFirstTime)
+                {
+                    NewChat();
+                    m_bFirstTime = false;
                 }
                 SetStatusMessage("Please Wait..");
                 string userMessage = textBoxQuery.Text.Trim();
@@ -169,7 +179,69 @@ namespace ChatGPTTest
         private void buttonNew_Click(object sender, EventArgs e)
         {
             NewChat();
+            LoadOpeningImage();
+            textBoxQuery.Text = "";
         }
+
+        private void LoadOpeningImage()
+        {
+            string base64Image = ConvertBitmapToBase64(ConvertResourceImageToBitmap(Properties.Resources.AI_Chat_Browser));
+            string htmlContent = $@"
+        <html>
+        <head>
+            <style>
+                body {{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    margin: 0;
+                    background-color: #f5f5f5;
+                }}
+                img {{
+                    max-width: 80%;
+                    max-height: 80%;
+                }}
+            </style>
+        </head>
+        <body>
+            <img src='data:image/jpeg;base64,{base64Image}' alt='Opening Image'>
+        </body>
+        </html>";
+
+            webViewGPT.NavigateToString(htmlContent);
+            m_bFirstTime = true;
+        }
+
+        private Bitmap ConvertResourceImageToBitmap(byte[] imageBytes)
+        {
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                return new Bitmap(ms);
+            }
+        }
+
+        private string ConvertBitmapToBase64(Bitmap image)
+        {
+            try
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (Bitmap clone = new Bitmap(image))  // Clone the bitmap to avoid GDI+ issues
+                    {
+                        clone.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    }
+                    return Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error converting image: " + ex.Message);
+                return string.Empty;
+            }
+        }
+        
     }
-       
 }
+       
+
