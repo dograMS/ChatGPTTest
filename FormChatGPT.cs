@@ -130,10 +130,13 @@ namespace ChatGPTTest
 
         private void newChatToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            NewChat();
+        }
+        private void NewChat()
+        {
             webViewGPT.ExecuteScriptAsync("document.body.innerHTML = '';");
             conversationHistory.Clear();
         }
-
         private async void buttonAsk_Click_1(object sender, EventArgs e)
         {
             try
@@ -161,6 +164,11 @@ namespace ChatGPTTest
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            NewChat();
         }
     }
        

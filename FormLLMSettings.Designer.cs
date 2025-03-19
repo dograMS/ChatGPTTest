@@ -86,6 +86,7 @@
             this.textBoxApiKey.Location = new System.Drawing.Point(135, 182);
             this.textBoxApiKey.Multiline = true;
             this.textBoxApiKey.Name = "textBoxApiKey";
+            this.textBoxApiKey.PasswordChar = '*';
             this.textBoxApiKey.Size = new System.Drawing.Size(592, 56);
             this.textBoxApiKey.TabIndex = 5;
             // 
@@ -173,6 +174,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormLLMSettings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LLM API Settings";
             this.groupBoxLLM.ResumeLayout(false);
             this.groupBoxLLM.PerformLayout();
