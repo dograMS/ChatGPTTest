@@ -73,14 +73,16 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Panel1.Controls.Add(this.webViewGPT);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
-            this.splitContainer1.Panel2.Controls.Add(this.webViewGPT);
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Size = new System.Drawing.Size(972, 450);
-            this.splitContainer1.SplitterDistance = 39;
+            this.splitContainer1.SplitterDistance = 400;
             this.splitContainer1.TabIndex = 1;
             // 
             // splitContainer2
