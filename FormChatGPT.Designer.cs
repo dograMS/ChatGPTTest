@@ -2,15 +2,8 @@
 {
     partial class FormChatGPT
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,31 +15,28 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChatGPT));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.webViewGPT = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.buttonNew = new System.Windows.Forms.Button();
+            this.textBoxQuery = new System.Windows.Forms.TextBox();
             this.buttonAsk = new System.Windows.Forms.Button();
             this.buttonProperties = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.webViewGPT = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.textBoxQuery = new System.Windows.Forms.TextBox();
-            this.buttonNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webViewGPT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -55,189 +45,136 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webViewGPT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // splitContainer1
-            // 
+
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
             this.splitContainer1.Panel1.Controls.Add(this.webViewGPT);
-            // 
-            // splitContainer1.Panel2
-            // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
-            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Size = new System.Drawing.Size(972, 450);
-            this.splitContainer1.SplitterDistance = 400;
+            this.splitContainer1.Size = new System.Drawing.Size(1458, 692);
+            this.splitContainer1.SplitterDistance = 615;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.buttonProperties);
-            this.splitContainer2.Size = new System.Drawing.Size(972, 39);
-            this.splitContainer2.SplitterDistance = 920;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.splitContainer4);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.buttonAsk);
-            this.splitContainer3.Size = new System.Drawing.Size(920, 39);
-            this.splitContainer3.SplitterDistance = 833;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // buttonAsk
-            // 
-            this.buttonAsk.AutoSize = true;
-            this.buttonAsk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAsk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAsk.ForeColor = System.Drawing.Color.Blue;
-            this.buttonAsk.Location = new System.Drawing.Point(0, 0);
-            this.buttonAsk.Name = "buttonAsk";
-            this.buttonAsk.Size = new System.Drawing.Size(83, 39);
-            this.buttonAsk.TabIndex = 1;
-            this.buttonAsk.Text = "Ask";
-            this.buttonAsk.UseVisualStyleBackColor = true;
-            this.buttonAsk.Click += new System.EventHandler(this.buttonAsk_Click_1);
-            // 
-            // buttonProperties
-            // 
-            this.buttonProperties.AutoSize = true;
-            this.buttonProperties.ContextMenuStrip = this.contextMenuStrip1;
-            this.buttonProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonProperties.Location = new System.Drawing.Point(0, 0);
-            this.buttonProperties.Name = "buttonProperties";
-            this.buttonProperties.Size = new System.Drawing.Size(48, 39);
-            this.buttonProperties.TabIndex = 2;
-            this.buttonProperties.Text = "...";
-            this.buttonProperties.UseVisualStyleBackColor = true;
-            this.buttonProperties.Click += new System.EventHandler(this.buttonProperties_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newChatToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 30);
-            // 
-            // newChatToolStripMenuItem
-            // 
-            this.newChatToolStripMenuItem.Name = "newChatToolStripMenuItem";
-            this.newChatToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
-            this.newChatToolStripMenuItem.Text = "New Chat";
-            this.newChatToolStripMenuItem.Click += new System.EventHandler(this.newChatToolStripMenuItem_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 381);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(972, 26);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "Status Message..";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(139, 21);
-            this.toolStripStatusLabel1.Text = "Status Message...";
-            // 
-            // webViewGPT
-            // 
+
             this.webViewGPT.AllowExternalDrop = true;
             this.webViewGPT.CreationProperties = null;
             this.webViewGPT.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webViewGPT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webViewGPT.Location = new System.Drawing.Point(0, 0);
             this.webViewGPT.Name = "webViewGPT";
-            this.webViewGPT.Size = new System.Drawing.Size(972, 407);
+            this.webViewGPT.Size = new System.Drawing.Size(1458, 615);
             this.webViewGPT.TabIndex = 1;
             this.webViewGPT.ZoomFactor = 1D;
-            // 
-            // splitContainer4
-            // 
+            this.webViewGPT.Click += new System.EventHandler(this.webViewGPT_Click);
+
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
+            this.splitContainer2.Panel2.Controls.Add(this.buttonProperties);
+            this.splitContainer2.Size = new System.Drawing.Size(1458, 32);
+            this.splitContainer2.SplitterDistance = 1380;
+            this.splitContainer2.TabIndex = 0;
+
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Panel1.Controls.Add(this.splitContainer4);
+            this.splitContainer3.Panel2.Controls.Add(this.buttonAsk);
+            this.splitContainer3.Size = new System.Drawing.Size(1380, 32);
+            this.splitContainer3.SplitterDistance = 1235;
+            this.splitContainer3.TabIndex = 0;
+
             this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer4.Location = new System.Drawing.Point(0, 0);
             this.splitContainer4.Name = "splitContainer4";
-            // 
-            // splitContainer4.Panel1
-            // 
             this.splitContainer4.Panel1.Controls.Add(this.buttonNew);
-            // 
-            // splitContainer4.Panel2
-            // 
             this.splitContainer4.Panel2.Controls.Add(this.textBoxQuery);
-            this.splitContainer4.Size = new System.Drawing.Size(833, 39);
-            this.splitContainer4.SplitterDistance = 38;
+            this.splitContainer4.Size = new System.Drawing.Size(1235, 32);
+            this.splitContainer4.SplitterDistance = 55;
             this.splitContainer4.TabIndex = 0;
-            // 
-            // textBoxQuery
-            // 
-            this.textBoxQuery.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBoxQuery.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxQuery.Location = new System.Drawing.Point(0, 0);
-            this.textBoxQuery.Multiline = true;
-            this.textBoxQuery.Name = "textBoxQuery";
-            this.textBoxQuery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxQuery.Size = new System.Drawing.Size(791, 39);
-            this.textBoxQuery.TabIndex = 2;
-            // 
-            // buttonNew
-            // 
-            this.buttonNew.AutoSize = true;
+
             this.buttonNew.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonNew.ForeColor = System.Drawing.Color.Red;
             this.buttonNew.Location = new System.Drawing.Point(0, 0);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(38, 39);
+            this.buttonNew.Size = new System.Drawing.Size(55, 32);
             this.buttonNew.TabIndex = 2;
             this.buttonNew.Text = "New";
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
-            // 
-            // FormChatGPT
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+
+            this.textBoxQuery.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBoxQuery.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.textBoxQuery.Location = new System.Drawing.Point(0, 0);
+            this.textBoxQuery.Multiline = true;
+            this.textBoxQuery.Name = "textBoxQuery";
+            this.textBoxQuery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxQuery.Size = new System.Drawing.Size(1174, 32);
+            this.textBoxQuery.TabIndex = 2;
+            this.textBoxQuery.TextChanged += new System.EventHandler(this.textBoxQuery_TextChanged);
+
+            this.buttonAsk.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonAsk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonAsk.ForeColor = System.Drawing.Color.Blue;
+            this.buttonAsk.Location = new System.Drawing.Point(0, 0);
+            this.buttonAsk.Name = "buttonAsk";
+            this.buttonAsk.Size = new System.Drawing.Size(139, 32);
+            this.buttonAsk.TabIndex = 1;
+            this.buttonAsk.Text = "Ask";
+            this.buttonAsk.UseVisualStyleBackColor = true;
+            this.buttonAsk.Click += new System.EventHandler(this.buttonAsk_Click_1);
+
+            this.buttonProperties.AutoSize = true;
+            this.buttonProperties.ContextMenuStrip = this.contextMenuStrip1;
+            this.buttonProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonProperties.Location = new System.Drawing.Point(0, 0);
+            this.buttonProperties.Name = "buttonProperties";
+            this.buttonProperties.Size = new System.Drawing.Size(72, 32);
+            this.buttonProperties.TabIndex = 2;
+            this.buttonProperties.Text = "...";
+            this.buttonProperties.UseVisualStyleBackColor = true;
+            this.buttonProperties.Click += new System.EventHandler(this.buttonProperties_Click);
+
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.newChatToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 36);
+
+            this.newChatToolStripMenuItem.Name = "newChatToolStripMenuItem";
+            this.newChatToolStripMenuItem.Size = new System.Drawing.Size(160, 32);
+            this.newChatToolStripMenuItem.Text = "New Chat";
+            this.newChatToolStripMenuItem.Click += new System.EventHandler(this.newChatToolStripMenuItem_Click);
+
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 32);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1458, 39);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "Status Message..";
+
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(210, 32);
+            this.toolStripStatusLabel1.Text = "Status Message...";
+
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 450);
+            this.ClientSize = new System.Drawing.Size(1458, 692);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -250,6 +187,7 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.webViewGPT)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
@@ -257,24 +195,21 @@
             this.splitContainer2.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
-            this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webViewGPT)).EndInit();
             this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel1.PerformLayout();
             this.splitContainer4.Panel2.ResumeLayout(false);
             this.splitContainer4.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
+
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private Microsoft.Web.WebView2.WinForms.WebView2 webViewGPT;
@@ -290,4 +225,3 @@
         private System.Windows.Forms.TextBox textBoxQuery;
     }
 }
-
