@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,19 @@ namespace ChatGPTTest
         internal ApiSettings GetApiSettings()
         {
             return m_ApiSettings;
+
+        }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
+                Color.WhiteSmoke, Color.Gainsboro, LinearGradientMode.Vertical))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
+
+        private void groupBoxLLM_Enter(object sender, EventArgs e)
+        {
 
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace ChatGPTTest
+﻿using System.Windows.Forms;
+
+namespace ChatGPTTest
 {
     partial class FormChatGPT
     {
@@ -103,19 +105,29 @@
             this.splitContainer4.TabIndex = 0;
 
             this.buttonNew.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonNew.ForeColor = System.Drawing.Color.Red;
+            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNew.FlatAppearance.BorderSize = 0;
+            this.buttonNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(255, 77, 77);  // Hover red
+            this.buttonNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(204, 0, 0);   // Pressed red
+            this.buttonNew.BackColor = System.Drawing.Color.FromArgb(232, 17, 35); // Primary red
+            this.buttonNew.ForeColor = System.Drawing.Color.White;
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNew.Location = new System.Drawing.Point(0, 0);
+            this.buttonNew.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(55, 32);
             this.buttonNew.TabIndex = 2;
             this.buttonNew.Text = "New";
-            this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.UseVisualStyleBackColor = false;  // Important to show BackColor
+            this.buttonNew.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
 
-            this.textBoxQuery.BackColor = System.Drawing.SystemColors.Menu;
+
+            this.textBoxQuery.BackColor = System.Drawing.Color.FromArgb(245, 245, 250); // Subtle off-white
+            this.textBoxQuery.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30); // Dark gray text
+            this.textBoxQuery.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxQuery.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.textBoxQuery.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.textBoxQuery.Location = new System.Drawing.Point(0, 0);
             this.textBoxQuery.Multiline = true;
             this.textBoxQuery.Name = "textBoxQuery";
@@ -123,17 +135,29 @@
             this.textBoxQuery.Size = new System.Drawing.Size(1174, 32);
             this.textBoxQuery.TabIndex = 2;
             this.textBoxQuery.TextChanged += new System.EventHandler(this.textBoxQuery_TextChanged);
+            this.textBoxQuery.Padding = new Padding(8, 4, 8, 4);  // Optional: if you wrap it in a panel
+            this.textBoxQuery.AcceptsReturn = true;
+            this.textBoxQuery.AcceptsTab = true;
+
 
             this.buttonAsk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAsk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonAsk.ForeColor = System.Drawing.Color.Blue;
+            this.buttonAsk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAsk.FlatAppearance.BorderSize = 0;
+            this.buttonAsk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(0, 120, 215); // Hover color
+            this.buttonAsk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(0, 84, 153); // Click color
+            this.buttonAsk.BackColor = System.Drawing.Color.FromArgb(0, 102, 204); // Primary blue
+            this.buttonAsk.ForeColor = System.Drawing.Color.White;
+            this.buttonAsk.Font = new System.Drawing.Font("Segoe UI", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAsk.Location = new System.Drawing.Point(0, 0);
+            this.buttonAsk.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAsk.Name = "buttonAsk";
             this.buttonAsk.Size = new System.Drawing.Size(139, 32);
             this.buttonAsk.TabIndex = 1;
             this.buttonAsk.Text = "Ask";
-            this.buttonAsk.UseVisualStyleBackColor = true;
+            this.buttonAsk.UseVisualStyleBackColor = false;  // Required for BackColor to show
+            this.buttonAsk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAsk.Click += new System.EventHandler(this.buttonAsk_Click_1);
+
 
             this.buttonProperties.AutoSize = true;
             this.buttonProperties.ContextMenuStrip = this.contextMenuStrip1;
