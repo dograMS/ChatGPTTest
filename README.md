@@ -1,9 +1,9 @@
 **This is a Bare minimal Windows Forms application developed in C#.NET to Test OpenAI | ChatGPT API** 
 
-![OpenAI_Test_Browser_1](https://github.com/user-attachments/assets/168eb6c6-8c10-4796-bdc2-deb8e8f425cf)
+![OpenAI_Test_Browser_1]()<img width="1919" height="1006" src="https://github.com/user-attachments/assets/f73b7be6-7ead-43a5-88c3-aa9aa4bfdbb8" />
+<img width="1919" height="1003" src="https://github.com/user-attachments/assets/97d2547c-1949-469c-9ebc-9826d72a499c" />
 
-![OpenAI_Test_Browser_2](https://github.com/user-attachments/assets/105dde7a-198b-4205-abdd-304ceceaf9a6)
 
-![OpenAI_Test_Browser_3](https://github.com/user-attachments/assets/2b9af2d0-a41b-4c80-9bef-30fe26ed29c3)
+<img width="1919" height="1006" src="https://github.com/user-attachments/assets/7b501bee-45c4-4972-903d-3b8d16c0e394" />
 
 **Developed using Visual Studio 2022**
